@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        html { 
+            background: url('static/bg1.jpg') no-repeat center center fixed;
+            background-size: 100% 100%;
+        }
+        body{
+            margin:0px;
+        }
+        h3{
+            background: linear-gradient(90deg, rgb(120, 55, 31) 0%, rgb(44, 2, 2) 100%, rgba(26,121,9,1) 100%);;
+            font-family: 'Lobster', cursive;
+            font-size: 60px;
+            text-align: center;
+            color:azure;
+            margin:0px;
+        }
+        h2{
+            font-family: 'Kanit', sans-serif;
+            font-size: 40px;
+            color:azure;
+            text-decoration: underline;  
+            padding-left: 250px;
+            margin:10px;
+        }
+        nav{
+            background-color: rgb(32, 28, 28);
+            border-radius: 20px;
+            border:0px;
+            /* position:sticky; */
+        }
+        nav ul{
+            margin:0px;
+        }
+        nav ul li{
+            display:inline-block;
+            list-style: none;
+            padding: 15px 80px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: beige;
+            font-family: 'Kanit', sans-serif;
+            font-size:large;
+            line-height: 10px;
+            height: 100%;
+        }
+        nav ul li:hover{
+            background-color: rgb(194, 198, 202);
+            text-decoration:underline;
+        }
+        .main{
+            border:1px solid whitesmoke;
+            width:50%;
+            text-align: center;
+            border-radius: 20px;
+            margin:20px 100px;
+            padding:10px;
+            color:azure;
+            font-family: 'Bree Serif', serif;
+        }
+    </style>
+</head>
+<body>
+    <h3>CINEPEDIA</h3>
+    <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/recommend">RECOMMENDATION</a></li>
+            </ul>
+    </nav>
+    <h2>TOP 100 MOVIES</h2>
+    {% for i in range(title|length) %}
+            <div class="main">
+                <div>MOVIE TITLE: {{ title[i] }}</div>
+                <div>AVERAGE RATING: {{ '%0.2f'| format(avg[i]|float) }}</div>
+                <div>GENRES: {{ genre[i] }}</div>
+            </div>
+    {% endfor %}
+</body>
+</html>
